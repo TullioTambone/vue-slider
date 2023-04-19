@@ -34,7 +34,17 @@ createApp({
         changeImg(i){
             this.currentActive = i;
         },
-
-        
+        prev(){
+            this.currentActive--
+            if(this.currentActive < 0){
+                this.currentActive = this.slides.length - 1
+            }
+        },
+        next(){
+            this.currentActive++
+            if (this.currentActive > this.slides.length - 1) {
+                this.currentActive = 0
+            }
+        }
     }
   }).mount('#app')
