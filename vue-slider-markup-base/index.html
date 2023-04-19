@@ -17,7 +17,7 @@
             <div class="slider-wrapper" tabindex="0">
 
                 <div class="item" @mouseover="stopScroll" @mouseleave="autoScroll">
-                    <img :src="slides[currentActive].image" class="active" alt="">
+                    <img :src="slides[currentActive].image" class="active" :alt="`immagine n. ${currentActive}`">
                     <div class="text">
                         <h3>{{ slides[currentActive].title }}</h3>
                         <p>{{ slides[currentActive].text }}</p>
@@ -28,7 +28,7 @@
                     <div class="prev" @click="prev"></div>
                     <div class="next" @click="next"></div>
                     <div class="thumb">
-                        <img v-for=" (element, index) in slides " :src="element.image" :class=" (currentActive == index) ? 'active' : '' " @click="changeImg(index)" alt="">
+                        <img v-for=" (element, index) in slides " :src="element.image" :class=" (currentActive == index) ? 'active' : '' " @click="changeImg(index)" :alt="`immagine thumb n. ${index}`">
                     </div>
                 </div>
 
