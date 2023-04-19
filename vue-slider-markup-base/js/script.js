@@ -30,6 +30,11 @@ createApp({
             }]
         }
     },
+
+    created(){
+        this.autoScroll();
+    },
+
     methods : {
         changeImg(i){
             this.currentActive = i;
@@ -45,6 +50,17 @@ createApp({
             if (this.currentActive > this.slides.length - 1) {
                 this.currentActive = 0
             }
+        },
+        
+        autoScroll(){
+            this.autoscroll = setInterval(()=>{
+                this.next();
+            }, 2000)
+        },
+
+        stopScroll(){
+            clearInterval(this.autoscroll)
+            this.autoscroll = null
         }
     }
   }).mount('#app')
